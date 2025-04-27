@@ -1,54 +1,36 @@
-# React + TypeScript + Vite
+## Challenge: Searchable List Component
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Objective
 
-Currently, two official plugins are available:
+Build a reusable React.js component that displays a list of items with a search feature, using the JSONPlaceholder API to fetch data.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Requirements
 
-## Expanding the ESLint configuration
+- **Functionality**:
+  - Create an input field for users to enter a search keyword.
+  - Display a list of **Users** (fetched from https://jsonplaceholder.typicode.com/users) filtered by the search keyword in real-time (no submit button needed).
+  - If the search keyword is empty, show the full list of Users.
+  - Filter should match the `name` field of the User model (e.g., "Leanne Graham").
+  - Enable inline editing of the user's username field:
+    - Click the username to edit.
+    - On blur or Enter, save changes locally (no real backend call needed).
+    - Reflect changes instantly (optimistic UI).
+  - Implement undo for the last username change (one level of undo).
+- **Technical**:
+  - Use React hooks (`useState`, and others as needed) for state management.
+  - Ensure the component is **reusable** (can accept a list of items via props).
+  - Handle loading and error states (e.g., show "Loading..." or "Error fetching data").
+- **UI**:
+  - Minimal styling required (ensure the input and list are clear).
+  - (Optional) Use basic CSS or Tailwind CSS or anything that you want for styling if desired.
+- **API**:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+  - Use https://jsonplaceholder.typicode.com/users to fetch User data.
+  - Example User model:
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+    ```json
+    { "id": 1, "name": "Leanne Graham", "username": "Bret", "email": "Sincere@april.biz", ... }
+    ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+- **Time**: 30 minutes (live coding).
+- **Output**: Working code demonstrating the search functionality. It doesn't need to be perfect, but should show your approach and thought process.
